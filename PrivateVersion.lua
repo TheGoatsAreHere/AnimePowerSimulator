@@ -1,3 +1,4 @@
+--s
 
 
 local vu = game:GetService("VirtualUser")
@@ -259,12 +260,12 @@ Tab:AddToggle({
                       game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v:GetModelCFrame() * CFrame.new(0,0,4)
                       game:GetService'VirtualUser':CaptureController()
                       game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
-                    else
+                    
+                    elseif v:IsA("Model") and not v.Name == MON then 
                       game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = MONCFRAME
                       Info:Set("Autofarm Status: Not Found Enemies - Teleport To Waiting Spawn")
-                   end 
                   end
-                
+                end
                 end
             else
               wait()
